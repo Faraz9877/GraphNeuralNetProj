@@ -1,4 +1,4 @@
-# Copyright 2023 The FLash-LLM Authors. All rights reserved.
+# Copyright 2023 The HeteroSparse Authors. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -17,7 +17,7 @@ N=(8 16 32 64)
 Sparsity=(70 80 90)
 
 
-echo "profiling Flash-LLM kernel..."
+echo "profiling HeteroSparse kernel..."
 mkdir -p ProfilingSpMM
 for ((i=0;i<${#M[@]};i++)) 
 do

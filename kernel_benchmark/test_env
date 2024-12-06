@@ -1,4 +1,4 @@
-# Copyright 2023 The FLash-LLM Authors. All rights reserved.
+# Copyright 2023 The HeteroSparse Authors. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -10,8 +10,8 @@
 # limitations under the License.
 
 # Please enter your sputnik path:
-MySputnikPath="${FlashLLM_HOME}/third_party/sputnik"
-MySpMMPath="${FlashLLM_HOME}"
+MySputnikPath="${HeteroSparse_HOME}/third_party/sputnik"
+MySpMMPath="${HeteroSparse_HOME}"
 MyUSEcuSPARSELT="yes"   # Used by sparTA
 
 #setting up Sputnik environment
@@ -28,10 +28,10 @@ fi
 #setting up my SpMM environment
 if [ -z "$MySpMMPath" ]
 then
-  echo "FlashLLM path is not defined."
-  echo "FlashLLM will not be used."
+  echo "HeteroSparse path is not defined."
+  echo "HeteroSparse will not be used."
 else
-  echo "Setting up FlashLLM environment..."
+  echo "Setting up HeteroSparse environment..."
   export SPMM_PATH=$MySpMMPath
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SPMM_PATH/build
 fi

@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2023 The FLash-LLM Authors. All rights reserved.
+ * Copyright 2023 The HeteroSparse Authors. All rights reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -443,7 +443,7 @@ int main(int argc, char** argv)
 //    sputnik_utils::SparseMatrix            sparse_matrix_A2(m, k, A2_float_h, sputnik_utils::SORTED, 4);
 //    sputnik_utils::CudaSparseMatrix<half2> sparse_matrix_A2_gpu(sparse_matrix_A2);
 
-    printf("Launching Flash-LLM without Ahead of Time Sparse Data Reordering...\n");
+    printf("Launching HeteroSparse without Ahead of Time Sparse Data Reordering...\n");
     
     half *Reduction_Workspace = NULL;
     cudaMalloc(reinterpret_cast<void**>(&Reduction_Workspace), sizeof(half) * M_GLOBAL * N_GLOBAL * (A1_SPLIT_K + A2_SPLIT_K));
@@ -1142,11 +1142,11 @@ int main(int argc, char** argv)
     PrintPerformance("CuSparseLt", milliseconds_cusparselt, tflops_cusparselt, totalError_cusparselt);
 #endif
 #ifdef USE_FLASH_LLM
-    PrintPerformance("FlashLLM_v1", milliseconds_SpMM2, tflops_SpMM2, totalError_SpMM2);
+    PrintPerformance("HeteroSparse_v1", milliseconds_SpMM2, tflops_SpMM2, totalError_SpMM2);
 #ifdef BREAKDOWN
-    PrintPerformance("FlashLLM_v1_A1", milliseconds_SpMM2_A1, tflops_SpMM2_A1, NAN);
-    PrintPerformance("FlashLLM_v1_A2", milliseconds_SpMM2_A2, tflops_SpMM2_A2, NAN);
-//    PrintPerformance("FlashLLM_v2", milliseconds_SpMM, tflops_SpMM, totalError_SpMM);
+    PrintPerformance("HeteroSparse_v1_A1", milliseconds_SpMM2_A1, tflops_SpMM2_A1, NAN);
+    PrintPerformance("HeteroSparse_v1_A2", milliseconds_SpMM2_A2, tflops_SpMM2_A2, NAN);
+//    PrintPerformance("HeteroSparse_v2", milliseconds_SpMM, tflops_SpMM, totalError_SpMM);
 #endif
 #endif
 

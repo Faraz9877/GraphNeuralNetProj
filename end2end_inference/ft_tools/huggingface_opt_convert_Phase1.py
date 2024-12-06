@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# This file is extended by Flash-LLM Authors based on Faster-Transformer.
+# This file is extended by HeteroSparse Authors based on Faster-Transformer.
 
 '''
 Convert huggingface Meta OPT model. Use https://huggingface.co/facebook/opt-125m as demo.

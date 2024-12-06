@@ -1,4 +1,4 @@
-# Copyright 2023 The FLash-LLM Authors. All rights reserved.
+# Copyright 2023 The HeteroSparse Authors. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -35,6 +35,6 @@ for i in range( len(TimeList)//N_COL ):
     data.append(row)
 
 # create a pandas dataframe from the performance data
-df = pd.DataFrame(data, columns=["CuSparse_C", "CuSparse_R", "Sputnik", "CuBlas_SIMT", "CuBlas_TC", "Flash-LLM", "Flash-LLM_NoReorder", "sparTA"])
+df = pd.DataFrame(data, columns=["CuSparse_C", "CuSparse_R", "Sputnik", "CuBlas_SIMT", "CuBlas_TC", "HeteroSparse", "HeteroSparse_NoReorder", "sparTA"])
 # write the dataframe to an Excel file
 df.to_excel("KernelPerformance.xlsx", index=False)

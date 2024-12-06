@@ -2,7 +2,7 @@ From ebd53aa9057c73556a7cf83a9114a46c2770d131 Mon Sep 17 00:00:00 2001
 From: Haojun Xia <xhjustc@mail.ustc.edu.cn>
 Date: Mon, 12 Dec 2022 23:44:00 +1100
 Subject: [PATCH] Extending faster-transformer to supoort pruned GPT model
- inference by replacing cuBLAS with our FlashLLM kernels.
+ inference by replacing cuBLAS with our HeteroSparse kernels.
 
 ---
  CMakeLists.txt                                |  19 +-
@@ -34,7 +34,7 @@ index 76a5e06..3da02f0 100644
    option(USE_TRITONSERVER_DATATYPE "Build triton backend for triton server" OFF)
  endif()
  
-+option(FLASH_LLM "Build project with FlashLLM feature support" OFF)
++option(FLASH_LLM "Build project with HeteroSparse feature support" OFF)
 +
  option(SPARSITY_SUPPORT "Build project with Ampere sparsity feature support" OFF)
  
@@ -62,10 +62,10 @@ index 76a5e06..3da02f0 100644
 +#set(SPARSITY_HAOJUN "OFF")
 +if (FLASH_LLM)
 +  message("-- FLASH_LLM is ${FLASH_LLM}!")
-+  message("-- FLASH_LLM_HOME is $ENV{FlashLLM_HOME}!")
++  message("-- FLASH_LLM_HOME is $ENV{HeteroSparse_HOME}!")
 +  add_definitions(-DSPARSITY_HAOJUN=1)
-+  include_directories($ENV{FlashLLM_HOME}/build)
-+  link_directories($ENV{FlashLLM_HOME}/build)
++  include_directories($ENV{HeteroSparse_HOME}/build)
++  link_directories($ENV{HeteroSparse_HOME}/build)
 +endif()
 +# Decided what to print during model execution
 +#add_definitions(-DPRINT_DEBUG_INFO=1)
